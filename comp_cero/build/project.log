@@ -1,0 +1,273 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "project.src"
+Input Format                       : mixed
+
+---- Target Parameters
+Target Device                      : xc7a100t-3csg324
+Output File Name                   : "project.ngc"
+Output Format                      : NGC
+
+---- Source Options
+Top Module Name                    : comp_cero
+
+---- General Options
+Optimization Goal                  : Area
+Optimization Effort                : 1
+RTL Output                         : yes
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "/home/sebas/Documentos/UNAL_linux/semestre_2/Digital2/entrega_1/comp_cero/comp_cero.v" into library work
+Parsing module <comp_cero>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <comp_cero>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <comp_cero>.
+    Related source file is "/home/sebas/Documentos/UNAL_linux/semestre_2/Digital2/entrega_1/comp_cero/comp_cero.v".
+        inputsize = 8
+    Found 1-bit register for signal <comp_out>.
+    Summary:
+	inferred   1 D-type flip-flop(s).
+Unit <comp_cero> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 1
+ 1-bit register                                        : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <comp_cero> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 0) on block comp_cero, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : project.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 2
+#      LUT3                        : 1
+#      LUT6                        : 1
+# FlipFlops/Latches                : 1
+#      FDE                         : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 10
+#      IBUF                        : 9
+#      OBUF                        : 1
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 7a100tcsg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice LUTs:                    2  out of  63400     0%  
+    Number used as Logic:                 2  out of  63400     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:      2
+   Number with an unused Flip Flop:       2  out of      2   100%  
+   Number with an unused LUT:             0  out of      2     0%  
+   Number of fully used LUT-FF pairs:     0  out of      2     0%  
+   Number of unique control sets:         1
+
+IO Utilization: 
+ Number of IOs:                          11
+ Number of bonded IOBs:                  11  out of    210     5%  
+    IOB Flip Flops/Latches:               1
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clock                              | BUFGP                  | 1     |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: No path found
+   Minimum input arrival time before clock: 1.010ns
+   Maximum output required time after clock: 0.640ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clock'
+  Total number of paths / destination ports: 9 / 2
+-------------------------------------------------------------------------
+Offset:              1.010ns (Levels of Logic = 3)
+  Source:            A<2> (PAD)
+  Destination:       comp_out (FF)
+  Destination Clock: clock rising
+
+  Data Path: A<2> to comp_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   0.001   0.511  A_2_IBUF (A_2_IBUF)
+     LUT3:I0->O            1   0.097   0.295  GND_1_o_GND_1_o_equal_2_o<0>_SW0 (N2)
+     LUT6:I5->O            1   0.097   0.000  GND_1_o_GND_1_o_equal_2_o<0> (GND_1_o_GND_1_o_equal_2_o)
+     FDE:D                     0.008          comp_out
+    ----------------------------------------
+    Total                      1.010ns (0.203ns logic, 0.807ns route)
+                                       (20.1% logic, 79.9% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clock'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              0.640ns (Levels of Logic = 1)
+  Source:            comp_out (FF)
+  Destination:       comp_out (PAD)
+  Source Clock:      clock rising
+
+  Data Path: comp_out to comp_out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.361   0.279  comp_out (comp_out_OBUF)
+     OBUF:I->O                 0.000          comp_out_OBUF (comp_out)
+    ----------------------------------------
+    Total                      0.640ns (0.361ns logic, 0.279ns route)
+                                       (56.4% logic, 43.6% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 63.00 secs
+Total CPU time to Xst completion: 57.48 secs
+ 
+--> 
+
+
+Total memory usage is 509604 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+
