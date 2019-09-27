@@ -64,8 +64,9 @@ always @(posedge clk) begin
 end
 
 /*
-issues: tener claro cómo es el uso de las igualdades síncronas y asíncronas
-no está muy claro cómo es el uso de los de los if's para lectura y escritura en el sumador
+ISSUES
+--tener claro cómo es el uso de las igualdades síncronas y asíncronas
+--no está muy claro cómo es el uso de los de los if's para lectura y escritura en el sumador
 
 */
 
