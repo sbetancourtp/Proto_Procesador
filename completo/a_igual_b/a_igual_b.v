@@ -2,7 +2,7 @@ module a_igual_b #(
     parameter inputsize = 4
 )(A, B, /*clk,*/ enable, ab_out, done);
 
-
+//wwwwww
 input enable;
 //input clk;
 input [0:inputsize - 1] A;
