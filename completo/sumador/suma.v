@@ -1,6 +1,6 @@
-module suma #(inputzise = 8)(active , data_in, result_suma, done_suma );
+module suma #(INPUTSIZE = 8)(active , data_in, result_suma, done_suma );
 
-input [inputzise-1:0] data_in;
+input [INPUTSIZE-1:0] data_in;
 input active;
 
 output reg  [3:0] result_suma;
